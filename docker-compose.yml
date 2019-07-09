@@ -2,14 +2,14 @@ version: '3'
 services:
   app:
     container_name: docker-node-mongo
-    restart: always
-    build: .
+    restart: always  //to restart the service if failed
+    build: . // to get the image from current work dir not dockerhub(Dockerfile)
     ports:
       - '80:3000'
     links:
       - mongo
   mongo:
     container_name: mongo
-    image: mongo
+    image: mongo // to get image from dockerhub
     ports:
       - '27017:27017'
